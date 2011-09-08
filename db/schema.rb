@@ -10,16 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110908215215) do
+ActiveRecord::Schema.define(:version => 20110908220030) do
 
   create_table "gem_files", :force => true do |t|
     t.string   "file"
-    t.integer  "rubygems_version_id"
+    t.integer  "rubygem_version_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "gem_files", ["rubygems_version_id"], :name => "index_gem_files_on_rubygems_version_id"
+  add_index "gem_files", ["rubygem_version_id"], :name => "index_gem_files_on_rubygems_version_id"
 
   create_table "rubygem_files", :force => true do |t|
     t.string   "file"
