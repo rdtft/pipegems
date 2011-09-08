@@ -1,0 +1,25 @@
+<h1>Listing rubygem_versions</h1>
+
+<table>
+  <tr>
+    <th>Rubygem</th>
+    <th>Version</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rubygem_versions.each do |rubygem_version| %>
+  <tr>
+    <td><%= rubygem_version.rubygem %></td>
+    <td><%= rubygem_version.version %></td>
+    <td><%= link_to 'Show', rubygem_version %></td>
+    <td><%= link_to 'Edit', edit_rubygem_version_path(rubygem_version) %></td>
+    <td><%= link_to 'Destroy', rubygem_version, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rubygem version', new_rubygem_version_path %>

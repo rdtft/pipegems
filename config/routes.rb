@@ -1,4 +1,8 @@
 Pipegems::Application.routes.draw do
+  resources :rubygem_versions
+
+  resources :rubygems
+
   devise_for :users
 
   # The priority is based upon order of creation:

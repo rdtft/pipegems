@@ -1,0 +1,25 @@
+<h1>Listing rubygems</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rubygems.each do |rubygem| %>
+  <tr>
+    <td><%= rubygem.name %></td>
+    <td><%= rubygem.user %></td>
+    <td><%= link_to 'Show', rubygem %></td>
+    <td><%= link_to 'Edit', edit_rubygem_path(rubygem) %></td>
+    <td><%= link_to 'Destroy', rubygem, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rubygem', new_rubygem_path %>

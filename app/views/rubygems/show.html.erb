@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @rubygem.name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @rubygem.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_rubygem_path(@rubygem) %> |
+<%= link_to 'Back', rubygems_path %>

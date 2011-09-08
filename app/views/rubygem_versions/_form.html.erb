@@ -1,0 +1,25 @@
+<%= form_for(@rubygem_version) do |f| %>
+  <% if @rubygem_version.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rubygem_version.errors.count, "error") %> prohibited this rubygem_version from being saved:</h2>
+
+      <ul>
+      <% @rubygem_version.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rubygem %><br />
+    <%= f.text_field :rubygem %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
