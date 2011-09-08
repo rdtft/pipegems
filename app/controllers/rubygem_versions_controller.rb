@@ -29,6 +29,10 @@ class RubygemVersionsController < ApplicationController
   def new
     @rubygem_version = RubygemVersion.new
 
+    3.times do
+      @rubygem_version.rubygem_files.build
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @rubygem_version }

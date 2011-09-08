@@ -15,6 +15,14 @@
     <%= f.label :version %><br />
     <%= f.text_field :version %>
   </div>
+
+  <%= f.fields_for :rubygem_files do |file_form| %>
+    <div class="field">
+      <%= file_form.label :file %><br />
+      <%= file_form.file_field :file %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
