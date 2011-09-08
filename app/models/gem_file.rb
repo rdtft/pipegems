@@ -1,3 +1,4 @@
 class GemFile < ActiveRecord::Base
-  belongs_to :rubygems_version
+  belongs_to :rubygem_version
+  mount_uploader :file, RubygemFileUploader
 end
