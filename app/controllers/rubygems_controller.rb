@@ -6,7 +6,7 @@ class RubygemsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @rubygems }
+      format.json { render :json => @rubygems }
     end
   end
 
@@ -17,7 +17,7 @@ class RubygemsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @rubygem }
+      format.json { render :json => @rubygem }
     end
   end
 
@@ -28,7 +28,7 @@ class RubygemsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @rubygem }
+      format.json { render :json => @rubygem }
     end
   end
 
@@ -40,15 +40,15 @@ class RubygemsController < ApplicationController
   # POST /rubygems
   # POST /rubygems.json
   def create
-    @rubygem = Rubygem.new( params[:rubygem].merge(user: current_user) )
+    @rubygem = Rubygem.new( params[:rubygem].merge(:user => current_user) )
 
     respond_to do |format|
       if @rubygem.save
-        format.html { redirect_to @rubygem, notice: 'Rubygem was successfully created.' }
-        format.json { render json: @rubygem, status: :created, location: @rubygem }
+        format.html { redirect_to @rubygem, :notice => 'Rubygem was successfully created.' }
+        format.json { render :json => @rubygem, :status => :created, :location => @rubygem }
       else
-        format.html { render action: "new" }
-        format.json { render json: @rubygem.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @rubygem.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class RubygemsController < ApplicationController
 
     respond_to do |format|
       if @rubygem.update_attributes(params[:rubygem])
-        format.html { redirect_to @rubygem, notice: 'Rubygem was successfully updated.' }
+        format.html { redirect_to @rubygem, :notice => 'Rubygem was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @rubygem.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @rubygem.errors, :status => :unprocessable_entity }
       end
     end
   end

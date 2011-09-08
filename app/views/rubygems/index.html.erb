@@ -15,7 +15,7 @@
     <td><%= rubygem.user %></td>
     <td><%= link_to 'Show', rubygem %></td>
     <td><%= link_to 'Edit', edit_rubygem_path(rubygem) %></td>
-    <td><%= link_to 'Destroy', rubygem, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', rubygem, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -9,7 +9,7 @@ class RubygemVersionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @rubygem_versions }
+      format.json { render :json => @rubygem_versions }
     end
   end
 
@@ -20,7 +20,7 @@ class RubygemVersionsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @rubygem_version }
+      format.json { render :json => @rubygem_version }
     end
   end
 
@@ -31,7 +31,7 @@ class RubygemVersionsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @rubygem_version }
+      format.json { render :json => @rubygem_version }
     end
   end
 
@@ -43,15 +43,15 @@ class RubygemVersionsController < ApplicationController
   # POST /rubygem_versions
   # POST /rubygem_versions.json
   def create
-    @rubygem_version = RubygemVersion.new( params[:rubygem_version].merge(rubygem: @rubygem) )
+    @rubygem_version = RubygemVersion.new( params[:rubygem_version].merge(:rubygem => @rubygem) )
 
     respond_to do |format|
       if @rubygem_version.save
-        format.html { redirect_to @rubygem_version, notice: 'Rubygem version was successfully created.' }
-        format.json { render json: @rubygem_version, status: :created, location: @rubygem_version }
+        format.html { redirect_to edit_rubygem_version_path(@rubygem, @rubygem_version), :notice => 'Rubygem version was successfully created.' }
+        format.json { render :json => @rubygem_version, :status => :created, :location => @rubygem_version }
       else
-        format.html { render action: "new" }
-        format.json { render json: @rubygem_version.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @rubygem_version.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -63,11 +63,11 @@ class RubygemVersionsController < ApplicationController
 
     respond_to do |format|
       if @rubygem_version.update_attributes(params[:rubygem_version])
-        format.html { redirect_to @rubygem_version, notice: 'Rubygem version was successfully updated.' }
+        format.html { redirect_to @rubygem_version, :notice => 'Rubygem version was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @rubygem_version.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @rubygem_version.errors, :status => :unprocessable_entity }
       end
     end
   end

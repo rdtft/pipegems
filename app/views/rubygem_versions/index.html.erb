@@ -15,7 +15,7 @@
     <td><%= rubygem_version.version %></td>
     <td><%= link_to 'Show', rubygem_version_path(@rubygem, rubygem_version) %></td>
     <td><%= link_to 'Edit', edit_rubygem_version_path(@rubygem, rubygem_version) %></td>
-    <td><%= link_to 'Destroy', rubygem_version_path(@rubygem, rubygem_version), confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', rubygem_version_path(@rubygem, rubygem_version), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
