@@ -1,8 +1,11 @@
 class RubygemVersionsController < ApplicationController
+
+  before_filter :find_rubygem
+
   # GET /rubygem_versions
   # GET /rubygem_versions.json
   def index
-    @rubygem_versions = RubygemVersion.all
+    @rubygem_versions = @rubygem.rubygem_versions
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +43,7 @@ class RubygemVersionsController < ApplicationController
   # POST /rubygem_versions
   # POST /rubygem_versions.json
   def create
-    @rubygem_version = RubygemVersion.new(params[:rubygem_version])
+    @rubygem_version = RubygemVersion.new( params[:rubygem_version].merge(rubygem: @rubygem) )
 
     respond_to do |format|
       if @rubygem_version.save
@@ -80,4 +83,11 @@ class RubygemVersionsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  protected
+
+    def find_rubygem
+      @rubygem = Rubygem.find( params[:rubygem_id] )
+    end
+
 end

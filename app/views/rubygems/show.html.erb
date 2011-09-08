@@ -7,9 +7,10 @@
 
 <p>
   <b>User:</b>
-  <%= @rubygem.user %>
+  <%= @rubygem.user.email %>
 </p>
 
 
+<%= link_to 'Versions', rubygem_versions_path(@rubygem) %> |
 <%= link_to 'Edit', edit_rubygem_path(@rubygem) %> |
 <%= link_to 'Back', rubygems_path %>

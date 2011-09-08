@@ -40,7 +40,7 @@ class RubygemsController < ApplicationController
   # POST /rubygems
   # POST /rubygems.json
   def create
-    @rubygem = Rubygem.new(params[:rubygem])
+    @rubygem = Rubygem.new( params[:rubygem].merge(user: current_user) )
 
     respond_to do |format|
       if @rubygem.save
