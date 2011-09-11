@@ -1,4 +1,3 @@
-require 'ftools'
 require 'fileutils'
 require 'erubis'
 
@@ -23,7 +22,7 @@ class RubygemVersion < ActiveRecord::Base
     FileUtils.mkdir_p(js_dir)
 
     rubygem_files.each do |f|
-      File.copy(f.file.path, "#{js_dir}/#{f.file_identifier}")
+      FileUtils.cp(f.file.path, "#{js_dir}/#{f.file_identifier}")
     end
 
     File.open "#{lib_dir}/#{rubygem.lib_name}.rb", 'w' do |f|
@@ -65,5 +64,13 @@ class RubygemVersion < ActiveRecord::Base
 
     gem_file.file = File.open(gem_file_path)
     gem_file.save
+
+    update = File.exists?("#{Rails.root}/public/specs.4.8")
+
+    Rails.logger.info "#{update ? 'Update' : 'Generate'} gems index"
+    Dir.chdir("#{Rails.root}/public")
+    Rails.logger.info(
+      `gem generate_index --directory #{Rails.root}/public #{update ? '--update' : ''}`
+    )
   end
 end
