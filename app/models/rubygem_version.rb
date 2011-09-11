@@ -68,9 +68,10 @@ class RubygemVersion < ActiveRecord::Base
     update = File.exists?("#{Rails.root}/public/specs.4.8")
 
     Rails.logger.info "#{update ? 'Update' : 'Generate'} gems index"
-    Dir.chdir("#{Rails.root}/public")
-    Rails.logger.info(
-      `gem generate_index --directory #{Rails.root}/public #{update ? '--update' : ''}`
-    )
+    Bundler.with_clean_env do
+      Rails.logger.info(
+        `gem generate_index --directory #{Rails.root}/public #{update ? '--update' : ''}`
+      )
+    end
   end
 end
