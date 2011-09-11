@@ -12,6 +12,8 @@ gem 'omniauth'
 
 gem 'carrierwave'
 
+gem 'inherited_resources'
+
 gem 'cancan', git: 'git://github.com/ryanb/cancan.git', branch: '2.0'
 
 # Gems used only for assets and not required
