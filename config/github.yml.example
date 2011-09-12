@@ -1,0 +1,11 @@
+development:
+  app_id: c554d1030912eec6dd03
+  secret_key: 7135ba7b4bb1d02fce17382d77f698ff2fb3944c
+
+test:
+  app_id: c554d1030912eec6dd03
+  secret_key: 7135ba7b4bb1d02fce17382d77f698ff2fb3944c
+
+production:
+  app_id: c554d1030912eec6dd03
+  secret_key: 7135ba7b4bb1d02fce17382d77f698ff2fb3944c
