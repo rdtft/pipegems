@@ -6,6 +6,8 @@ class RubygemVersion < ActiveRecord::Base
   has_many :rubygem_files, :dependent => :destroy
   has_one :gem_file, :dependent => :destroy
 
+  delegate :user_id, to: :rubygem
+
   accepts_nested_attributes_for :rubygem_files, :allow_destroy => true
 
   before_save :build!
