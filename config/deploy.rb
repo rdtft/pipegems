@@ -35,6 +35,7 @@ set :rvm_type,        :user
 after 'bundle:install', roles: :app do
   # DB
   run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  run "ln -nfs #{shared_path}/config/github.yml #{release_path}/config/github.yml"
   run "cd #{release_path} && bundle exec rake db:migrate RAILS_ENV=production"
 
   # Gems

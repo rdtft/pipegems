@@ -4,6 +4,7 @@ log/*.log
 tmp/
 .sass-cache/
 public/uploads/*
+config/github.yml
 
 # RubyGems stuff
 public/Marshal.4.8

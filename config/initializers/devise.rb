@@ -1,3 +1,5 @@
+GITHUB_CONFIG = YAML.load_file("#{Rails.root}/config/github.yml")[Rails.env]
+
 # Use this hook to configure devise mailer, warden hooks and so forth. The first
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
@@ -197,7 +199,11 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :github, 'e64b98a4570777aa841e', '73e8f2d00c117748a19028ec87fa5e0ea8cddddb', :scope => 'user,public_repo'
+  config.omniauth \
+    :github,
+    GITHUB_CONFIG['app_id'],
+    GITHUB_CONFIG['secret_key'],
+    scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
