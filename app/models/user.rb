@@ -5,25 +5,22 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :nickname, :name, :email, :github_token, :password
 
   has_many :rubygems
 
-  def self.find_for_github_oauth(access_token, signed_in_resource=nil)
-    data = access_token['extra']['user_hash']
-    if user = User.find_by_email(data["email"])
-      user
-    else # Create a user with a stub password.
-      User.create(:email => data["email"], :password => Devise.friendly_token[0,20])
-    end
-  end
+  def self.find_or_create_by_oauth(access_token)
+    user_info = access_token['user_info']
 
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session['devise.github_data'] && session['devise.github_data']['extra']['user_hash']
-        user.email = data['email']
-      end
+    if user = User.find_by_nickname( user_info['nickname'] )
+      user
+    else
+      User.create \
+        nickname:     user_info['nickname'],
+        name:         user_info['name'],
+        email:        user_info['email'],
+        github_token: access_token['credentials']['token'],
+        password:     Devise.friendly_token[0, 20]
     end
   end
 end
