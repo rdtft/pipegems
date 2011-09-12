@@ -1,7 +1,4 @@
 class RubygemsController < InheritedResources::Base
-  protected
-
-    def begin_of_association_chain
-      current_user
-    end
+  actions :index, :show, :new, :create
+  before_filter lambda { resource.user = current_user }, :only => :create
 end
