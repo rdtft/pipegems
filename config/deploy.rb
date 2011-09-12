@@ -40,15 +40,15 @@ after 'bundle:install', roles: :app do
 
   # Gems
   run "ln -nfs #{shared_path}/rubygems/gems #{release_path}/public/gems"
-  run "ln -nfs #{shared_path}/rubygems/latest_specs.4.8 #{release_path}/public"
-  run "ln -nfs #{shared_path}/latest_specs.4.8.gz #{release_path}/public"
-  run "ln -nfs #{shared_path}/Marshal.4.8 #{release_path}/public"
-  run "ln -nfs #{shared_path}/Marshal.4.8.Z #{release_path}/public"
-  run "ln -nfs #{shared_path}/prerelease_specs.4.8 #{release_path}/public"
-  run "ln -nfs #{shared_path}/prerelease_specs.4.8.gz #{release_path}/public"
-  run "ln -nfs #{shared_path}/quick #{release_path}/public"
-  run "ln -nfs #{shared_path}/specs.4.8 #{release_path}/public"
-  run "ln -nfs #{shared_path}/specs.4.8.gz #{release_path}/public"
+  run "ln -nfs #{shared_path}/rubygems/latest_specs.4.8 #{release_path}/public/latest_specs.4.8"
+  run "ln -nfs #{shared_path}/rubygems/latest_specs.4.8.gz #{release_path}/public/latest_specs.4.8.gz"
+  run "ln -nfs #{shared_path}/rubygems/Marshal.4.8 #{release_path}/public/Marshal.4.8"
+  run "ln -nfs #{shared_path}/rubygems/Marshal.4.8.Z #{release_path}/public/Marshal.4.8.Z"
+  run "ln -nfs #{shared_path}/rubygems/prerelease_specs.4.8 #{release_path}/public/prerelease_specs.4.8"
+  run "ln -nfs #{shared_path}/rubygems/prerelease_specs.4.8.gz #{release_path}/public/prerelease_specs.4.8.gz"
+  run "ln -nfs #{shared_path}/rubygems/quick #{release_path}/public/quick"
+  run "ln -nfs #{shared_path}/rubygems/specs.4.8 #{release_path}/public/specs.4.8"
+  run "ln -nfs #{shared_path}/rubygems/specs.4.8.gz #{release_path}/public/specs.4.8.gz"
 end
 
 namespace :deploy do
