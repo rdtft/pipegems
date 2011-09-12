@@ -5,8 +5,6 @@
     <th>Rubygem</th>
     <th>Version</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @rubygem_versions.each do |rubygem_version| %>
@@ -14,13 +12,12 @@
     <td><%= rubygem_version.rubygem %></td>
     <td><%= rubygem_version.version %></td>
     <td><%= link_to 'Show', rubygem_version_path(@rubygem, rubygem_version) %></td>
-    <td><%= link_to 'Edit', edit_rubygem_version_path(@rubygem, rubygem_version) %></td>
-    <td><%= link_to 'Destroy', rubygem_version_path(@rubygem, rubygem_version), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Rubygem version', new_rubygem_version_path(@rubygem) %>
-
+<% if current_user == @rubygem.user %>
+  <%= link_to 'New Rubygem version', new_rubygem_version_path(@rubygem) %>
+<% end %>
