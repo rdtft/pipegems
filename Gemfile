@@ -12,6 +12,7 @@ gem 'devise'
 gem 'omniauth'
 
 gem 'carrierwave'
+gem 'fog'
 
 gem 'inherited_resources'
 
