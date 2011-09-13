@@ -1,0 +1,26 @@
+development:
+  aws_access_key_id: access_key_id
+  aws_secret_access_key: secret_access_key
+
+  s3:
+    bucket: bucket_name
+    region: s3-region
+    dir: gems
+
+test:
+  aws_access_key_id: access_key_id
+  aws_secret_access_key: secret_access_key
+
+  s3:
+    bucket: bucket_name
+    region: s3-region
+    dir: gems
+
+production:
+  aws_access_key_id: access_key_id
+  aws_secret_access_key: secret_access_key
+
+  s3:
+    bucket: bucket_name
+    region: s3-region
+    dir: gems
