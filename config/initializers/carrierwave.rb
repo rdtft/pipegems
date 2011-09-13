@@ -8,5 +8,5 @@ CarrierWave.configure do |config|
     region:                 AWS_CONFIG['s3']['region']
   }
 
-  config.fog_directory  = AWS_CONFIG['s3']['dir']
+  config.fog_directory  = AWS_CONFIG['s3']['bucket']
 end
