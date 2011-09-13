@@ -19,8 +19,6 @@ class RubygemVersion < ActiveRecord::Base
     lib_dir = "#{tmp_dir}/lib"
     js_dir  = "#{lib_dir}/assets/javascripts/"
 
-    puts tmp_dir
-
     FileUtils.mkdir_p(js_dir)
 
     rubygem_files.each do |f|
@@ -66,6 +64,8 @@ class RubygemVersion < ActiveRecord::Base
 
     gem_file.file = File.open(gem_file_path)
     gem_file.save
+
+    return # Disable index generation - k
 
     update = File.exists?("#{Rails.root}/public/specs.4.8")
 
