@@ -8,5 +8,7 @@ Pipegems::Application.routes.draw do
     resources :rubygem_versions, :as => :versions
   end
 
+  resources :gems, only: [:index, :show], constraints: { id: /pipe-.+.gem/ }
+
   root :to => 'rubygems#index'
 end
