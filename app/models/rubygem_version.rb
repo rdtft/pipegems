@@ -13,6 +13,8 @@ class RubygemVersion < ActiveRecord::Base
   before_save :build!
 
   def build!
+    assets = []
+
     gem_file = self.build_gem_file
 
     tmp_dir = "#{Dir.tmpdir}/#{rubygem.lib_name}/#{self.version}"
@@ -23,6 +25,7 @@ class RubygemVersion < ActiveRecord::Base
 
     rubygem_files.each do |f|
       FileUtils.cp(f.file.path, "#{js_dir}/#{f.file_identifier}")
+      assets << "lib/assets/javascripts/#{f.file_identifier}"
     end
 
     File.open "#{lib_dir}/#{rubygem.lib_name}.rb", 'w' do |f|
@@ -38,24 +41,22 @@ class RubygemVersion < ActiveRecord::Base
         eos
     end
 
+    spec =  Gem::Specification.new do |s|
+      s.name     = rubygem.lib_name
+      s.version  = self.version
+      s.authors  = ['Sasha Koss']
+      s.email    = 'koss@nocorp.me'
+      s.homepage = 'http://github.com/kossnocorp/pipegems'
+
+      s.summary     = 'Turn your .js to .gem'
+      s.description = 'Turn your .js to .gem'
+      s.files       = ["lib/#{rubygem.lib_name}.rb"] + assets
+
+      s.add_dependency('rails', '~> 3.1.0')
+    end
+
     File.open "#{tmp_dir}/#{rubygem.lib_name}.gemspec", 'w' do |f|
-        f.write <<-EOF
-          Gem::Specification.new do |s|
-            s.name     = '#{rubygem.lib_name}'
-            s.version  = '#{self.version}'
-            s.authors  = ['Sasha Koss']
-            s.email    = ['koss@nocorp.me']
-            s.homepage = 'http://github.com/kossnocorp/pipegems'
-
-            s.summary     = 'Turn your .js to .gem'
-            s.description = 'Turn your .js to .gem'
-            s.files       = Dir['lib/**/*']
-
-            s.add_dependency('rails', '~> 3.1.0')
-
-            s.require_paths = ['lib']
-          end
-        EOF
+      f.write spec.to_ruby
     end
 
     Dir.chdir(tmp_dir)
