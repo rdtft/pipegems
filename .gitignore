@@ -18,3 +18,6 @@ public/prerelease_specs.4.8.gz
 public/quick/
 public/specs.4.8
 public/specs.4.8.gz
+
+.rbenv-version
+.rvmrc
