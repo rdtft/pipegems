@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'pg'
 
 gem 'devise'
-gem 'omniauth'
+gem 'omniauth-github'
 
 gem 'carrierwave'
 gem 'fog'

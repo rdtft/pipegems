@@ -1,7 +1,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
     sign_in_and_redirect \
-      User.find_or_create_by_oauth( env['omniauth.auth'] ),
+      User.find_or_create_by_oauth( request.env['omniauth.auth'] ),
       event: :authentication
   end
 

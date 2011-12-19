@@ -10,16 +10,16 @@ class User < ActiveRecord::Base
   has_many :rubygems
 
   def self.find_or_create_by_oauth(access_token)
-    user_info = access_token['user_info']
+    data = access_token.info
 
-    if user = User.find_by_nickname( user_info['nickname'] )
+    if user = User.where(:email => data.email).first
       user
     else
-      User.create \
-        nickname:     user_info['nickname'],
-        name:         user_info['name'],
-        email:        user_info['email'],
-        github_token: access_token['credentials']['token'],
+      User.create! \
+        nickname:     data.nickname,
+        name:         data.name,
+        email:        data.email,
+        github_token: access_token.credentials.token,
         password:     Devise.friendly_token[0, 20]
     end
   end
