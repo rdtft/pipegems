@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '~> 3.1.2'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -21,8 +21,8 @@ gem 'cancan', git: 'git://github.com/ryanb/cancan.git', branch: '2.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails',   '~> 3.1.5'
+  gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier'
 end
 
@@ -34,6 +34,11 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+group :development, :test do
+  gem 'fabrication'
+  gem 'rspec-rails', '~> 2.7.0'
+end
+
 group :development do
   gem 'capistrano'
 end
@@ -44,7 +49,6 @@ group :production do
 end
 
 group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
-  gem 'fabrication'
+  gem 'database_cleaner'
+  gem 'spork'
 end
