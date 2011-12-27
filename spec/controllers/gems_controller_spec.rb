@@ -5,7 +5,7 @@ describe GemsController do
   let(:rubygem)          { rubygem_version.rubygem }
   let(:gem_file)         { stub(:id => "pipe-#{rubygem.name}-#{rubygem_version.version}.gem") }
 
-  xit 'should get index' do
+  it 'should get index' do
     get :index
     response.should be_success
   end
