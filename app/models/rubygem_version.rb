@@ -12,6 +12,8 @@ class RubygemVersion < ActiveRecord::Base
 
   before_save :build!
 
+  validates :version, :presence => true, :uniqueness => { :scope => :rubygem_id }
+
   def build!
     assets = []
 

@@ -21,3 +21,5 @@ public/specs.4.8.gz
 
 .rbenv-version
 .rvmrc
+
+.rspec
