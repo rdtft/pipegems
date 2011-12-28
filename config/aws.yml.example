@@ -1,26 +1,4 @@
-development:
-  aws_access_key_id: access_key_id
-  aws_secret_access_key: secret_access_key
-
-  s3:
-    bucket: bucket_name
-    region: s3-region
-    dir: gems
-
-test:
-  aws_access_key_id: access_key_id
-  aws_secret_access_key: secret_access_key
-
-  s3:
-    bucket: bucket_name
-    region: s3-region
-    dir: gems
-
-production:
-  aws_access_key_id: access_key_id
-  aws_secret_access_key: secret_access_key
-
-  s3:
-    bucket: bucket_name
-    region: s3-region
-    dir: gems
+default:
+  aws_access_key_id: 'XXX'      # required
+  aws_secret_access_key: 'YYY'  # required
+  region: 'us-east-1'           # optional, defaults to 'us-east-1'
