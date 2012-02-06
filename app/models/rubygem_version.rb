@@ -3,16 +3,16 @@ require 'erubis'
 
 class RubygemVersion < ActiveRecord::Base
   belongs_to :rubygem
-  has_many :rubygem_files, :dependent => :destroy
-  has_one :gem_file, :dependent => :destroy
+  has_many :rubygem_files, dependent: :destroy
+  has_one :gem_file, dependent: :destroy
 
   delegate :user_id, to: :rubygem
 
-  accepts_nested_attributes_for :rubygem_files, :allow_destroy => true
+  accepts_nested_attributes_for :rubygem_files, allow_destroy: true
 
   before_save :build!
 
-  validates :version, :presence => true, :uniqueness => { :scope => :rubygem_id }
+  validates :version, presence: true, uniqueness: { scope: :rubygem_id }
 
   def build!
     assets = []

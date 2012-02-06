@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Rubygem do
   before(:each) do
     @attr = {
-      :name => 'foo',
-      :user => Fabricate(:user)
+      name: 'foo',
+      user: Fabricate(:user)
     }
   end
 
@@ -14,7 +14,7 @@ describe Rubygem do
   end
 
   it 'should require name' do
-    rubygem = Rubygem.new(@attr.merge(:name => ''))
+    rubygem = Rubygem.new(@attr.merge(name: ''))
     rubygem.should_not be_valid
   end
 

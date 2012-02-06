@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   def self.find_or_create_by_oauth(access_token)
     data = access_token.info
 
-    if user = User.where(:email => data.email).first
+    if user = User.where(email: data.email).first
       user
     else
       User.create! \

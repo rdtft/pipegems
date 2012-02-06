@@ -20,7 +20,7 @@ def configure
   require 'rspec/rails'
   require 'rspec/autorun'
   require 'database_cleaner'
-  require_all 'spec/support/**/*.rb', :relative_to => 'spec'
+  require_all 'spec/support/**/*.rb', relative_to: 'spec'
 
   RSpec.configure do |c|
     c.mock_with :rspec
