@@ -10,6 +10,10 @@
   <%= @rubygem_version.version %>
 </p>
 
+<p>
+  <b>Published:</b>
+  <%= @rubygem_version.published %>
+</p>
 
 <%= link_to 'Edit', edit_rubygem_version_path(@rubygem_version) %> |
 <%= link_to 'Back', rubygem_versions_path %>
