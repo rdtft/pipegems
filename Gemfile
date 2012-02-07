@@ -14,6 +14,7 @@ gem 'inherited_resources', '~> 1.3.0'
 gem 'cancan', git: 'git://github.com/ryanb/cancan.git', branch: '2.0'
 
 gem 'jquery-rails',        '~> 2.0.0'
+gem 'ember-rails',         '~> 0.2.4'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'
