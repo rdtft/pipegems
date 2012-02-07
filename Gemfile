@@ -7,7 +7,7 @@ gem 'pg',                  '~> 0.12.2'
 gem 'devise',              '~> 2.0.0'
 gem 'omniauth-github',     '~> 1.0.1'
 
-gem 'carrierwave',         '~> 0.5.8'
+gem 'carrierwave', git: 'git://github.com/jnicklas/carrierwave.git'
 
 gem 'inherited_resources', '~> 1.3.0'
 
@@ -34,7 +34,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 0.7.1'
-  gem 'spork',            '~> 0.9.0'
+  gem 'spork',            '~> 1.0rc'
 end
 
 group :production do
