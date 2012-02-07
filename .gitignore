@@ -23,3 +23,5 @@ public/specs.4.8.gz
 .rvmrc
 
 .rspec
+
+.tm_properties
