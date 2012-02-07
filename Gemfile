@@ -36,7 +36,7 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'fabrication'
-  gem 'rspec-rails', '~> 2.7.0'
+  gem 'rspec-rails', '~> 2.8.0'
 end
 
 group :development do
@@ -50,5 +50,5 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'spork'
+  gem 'spork', '~> 1.0rc'
 end
