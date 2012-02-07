@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 class GemFileUploader < CarrierWave::Uploader::Base
-  storage :fog
+  storage :file
 
   def store_dir
-    'gems'
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 end

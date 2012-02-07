@@ -11,7 +11,6 @@ gem 'devise'
 gem 'omniauth-github'
 
 gem 'carrierwave'
-gem 'fog'
 
 gem 'inherited_resources'
 

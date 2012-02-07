@@ -43,7 +43,7 @@ class RubygemVersion < ActiveRecord::Base
         eos
     end
 
-    spec =  Gem::Specification.new do |s|
+    spec = Gem::Specification.new do |s|
       s.name     = rubygem.lib_name
       s.version  = self.version
       s.authors  = ['Sasha Koss']

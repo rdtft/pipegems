@@ -5,7 +5,6 @@ tmp/
 .sass-cache/
 public/uploads/*
 config/github.yml
-config/aws.yml
 
 # RubyGems stuff
 public/Marshal.4.8
