@@ -11,7 +11,8 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth-github'
 
-gem 'carrierwave'
+gem 'carrierwave', git: "git://github.com/jnicklas/carrierwave.git"
+
 gem 'fog'
 
 gem 'inherited_resources'
