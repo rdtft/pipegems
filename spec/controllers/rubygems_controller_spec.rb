@@ -35,18 +35,18 @@ describe RubygemsController do
   it 'should not response to edit' do
     lambda do
       get :edit, id: rubygem.id
-    end.should raise_error(ActionController::UnknownAction)
+    end.should raise_error(AbstractController::ActionNotFound)
   end
 
   it 'should not response to update' do
     lambda do
       put :update, id: rubygem.id
-    end.should raise_error(ActionController::UnknownAction)
+    end.should raise_error(AbstractController::ActionNotFound)
   end
 
   it 'should not response to destroy' do
     lambda do
       delete :update, id: rubygem.id
-    end.should raise_error(ActionController::UnknownAction)
+    end.should raise_error(AbstractController::ActionNotFound)
   end
 end

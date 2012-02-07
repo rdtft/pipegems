@@ -40,7 +40,7 @@ describe RubygemVersionsController do
       get :edit,
         rubygem_id: rubygem.id,
         id:         rubygem_version.to_param
-    end.should raise_error(ActionController::UnknownAction)
+    end.should raise_error(AbstractController::ActionNotFound)
   end
 
   it 'should not response to update' do
@@ -49,7 +49,7 @@ describe RubygemVersionsController do
         id:              rubygem_version.id,
         rubygem_id:      rubygem.id,
         rubygem_version: rubygem_version.attributes
-    end.should raise_error(ActionController::UnknownAction)
+    end.should raise_error(AbstractController::ActionNotFound)
   end
 
   it 'should not response to destroy' do
@@ -57,6 +57,6 @@ describe RubygemVersionsController do
       delete :destroy,
         rubygem_id: rubygem.id,
         id:         rubygem_version.id
-    end.should raise_error(ActionController::UnknownAction)
+    end.should raise_error(AbstractController::ActionNotFound)
   end
 end
