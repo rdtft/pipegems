@@ -25,6 +25,7 @@ end
 group :development, :test do
   gem 'fabrication', '~> 1.2.0'
   gem 'rspec-rails', '~> 2.8.1'
+  gem 'shoulda',     '~> 2.11.3'
 end
 
 group :development do
