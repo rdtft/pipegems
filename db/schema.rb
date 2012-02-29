@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221112014) do
+ActiveRecord::Schema.define(:version => 20120227202753) do
 
   create_table "gem_files", :force => true do |t|
     t.string   "file"
@@ -74,5 +74,13 @@ ActiveRecord::Schema.define(:version => 20120221112014) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "versions", :force => true do |t|
+    t.integer  "pipegem_id"
+    t.string   "name"
+    t.boolean  "published",  :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
 
 end

@@ -25,7 +25,7 @@ end
 group :development, :test do
   gem 'fabrication', '~> 1.2.0'
   gem 'rspec-rails', '~> 2.8.1'
-  gem 'shoulda',     '~> 2.11.3'
+  gem 'shoulda',     git: 'git://github.com/mkaschenko/shoulda.git', tag: 'v2.11.4'
 end
 
 group :development do
