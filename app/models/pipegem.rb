@@ -1,6 +1,8 @@
 class Pipegem < ActiveRecord::Base
   has_many :versions, :dependent => :destroy
   
+  before_validation :normalize_name
+  
   validates :name, :presence   => true,
                    :uniqueness => true
                    

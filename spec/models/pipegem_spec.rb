@@ -3,13 +3,25 @@ require 'spec_helper'
 describe Pipegem do
   subject { Fabricate :pipegem }
 
+  context 'associations' do
+    it { should have_many(:versions).dependent(:destroy) }
+  end
+  
+  context 'validation callbacks' do
+    let(:pipegem) { Fabricate.build :pipegem }
+
+    context 'before' do
+      it '#normalize_name' do
+        pipegem.name = 'awesome'.center(20)
+        pipegem.valid?
+        pipegem.name.should eql 'pipe-awesome'
+      end
+    end
+  end
+  
   context 'validations' do
     it { should validate_uniqueness_of :name }
     it { should validate_presence_of :name }
-  end
-
-  context 'associations' do
-    it { should have_many(:versions).dependent(:destroy) }
   end
 
   context '#normalize_name' do
