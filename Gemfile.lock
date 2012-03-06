@@ -9,7 +9,7 @@ GIT
 GIT
   remote: git://github.com/mkaschenko/shoulda.git
   revision: a1eb387c123b5cb8cfcfb4defe4e03a2668d55f7
-  tag: v2.11.4
+  branch: fix_primary_key_name
   specs:
     shoulda (2.11.3)
 
