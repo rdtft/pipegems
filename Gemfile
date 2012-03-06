@@ -25,6 +25,7 @@ end
 group :development, :test do
   gem 'fabrication', '~> 1.2.0'
   gem 'rspec-rails', '~> 2.8.1'
+  gem 'guard-rspec', '~> 0.6.0'
   gem 'shoulda',     git: 'git://github.com/mkaschenko/shoulda.git', branch: 'fix_primary_key_name'
 end
 
