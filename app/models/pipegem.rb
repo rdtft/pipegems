@@ -7,18 +7,21 @@ class Pipegem < ActiveRecord::Base
                    :uniqueness => true
                    
   def normalize_name
-    name = self.name
-    
-    name.strip!
-    
-    pipe = 'pipe-'
-    prefix = /^#{pipe}/
-    if name == pipe
-      name.clear
-    else
-      name = "#{pipe}#{name}" unless name =~ prefix
+    name_copy = self.name
+
+    if name_copy.present?
+      name_copy.strip!
+
+      pipe = 'pipe-'
+      prefix = /^#{pipe}/
+
+      if name_copy == pipe
+        name_copy.clear
+      else
+        name_copy = "#{pipe}#{name_copy}" unless name_copy =~ prefix
+      end
     end
-    
-    self.name = name
+
+    self.name = name_copy
   end
 end
