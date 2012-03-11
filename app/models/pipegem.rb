@@ -12,7 +12,7 @@ class Pipegem < ActiveRecord::Base
     if name_copy.present?
       name_copy.strip!
 
-      pipe = 'pipe-'
+      pipe   = 'pipe-'
       prefix = /^#{pipe}/
 
       if name_copy == pipe
