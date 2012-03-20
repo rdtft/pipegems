@@ -1,27 +1,15 @@
 class Pipegem < ActiveRecord::Base
   has_many :versions, :dependent => :destroy
-  
-  before_validation :normalize_name
-  
+
+  strip_attributes :only => :name
+  before_validation :name_delete_prefix
+
   validates :name, :presence   => true,
-                   :uniqueness => true
-                   
-  def normalize_name
-    name_copy = self.name
+                   :uniqueness => { :case_sensitive => false }
 
-    if name_copy.present?
-      name_copy.strip!
-
-      pipe   = 'pipe-'
-      prefix = /^#{pipe}/
-
-      if name_copy == pipe
-        name_copy.clear
-      else
-        name_copy = "#{pipe}#{name_copy}" unless name_copy =~ prefix
-      end
-    end
-
-    self.name = name_copy
+  def name_delete_prefix
+    prefix = /^pipe-/i
+    self.name.try(:sub!, prefix, '')
   end
+                   
 end
