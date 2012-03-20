@@ -20,9 +20,11 @@ def configure
   require 'rspec/rails'
   require 'rspec/autorun'
   require 'database_cleaner'
+  require 'strip_attributes/shoulda'
   require_all 'spec/support/**/*.rb', relative_to: 'spec'
 
   RSpec.configure do |c|
+    c.include StripAttributes::Shoulda::Matchers
     c.mock_with :rspec
 
     c.before :suite do

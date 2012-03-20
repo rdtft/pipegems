@@ -16,7 +16,7 @@ gem 'cancan',              git: 'git://github.com/ryanb/cancan.git', branch: '2.
 gem 'jquery-rails',        '~> 2.0.0'
 gem 'ember-rails',         '~> 0.2.4'
 
-gem 'strip_attributes',    '~> 1.1.0'
+gem 'strip_attributes',    git: 'git://github.com/mkaschenko/strip_attributes.git', branch: 'shoulda_matchers_support'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'
