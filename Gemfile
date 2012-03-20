@@ -29,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails',   '~> 2.8.1'
   gem 'guard-rspec',   '~> 0.6.0'
   gem 'guard-bundler', '~> 0.1.3'
+  gem 'awesome_print', '~> 1.0.2'
   gem 'shoulda',       git: 'git://github.com/mkaschenko/shoulda.git', branch: 'fix_primary_key_name'
 end
 
