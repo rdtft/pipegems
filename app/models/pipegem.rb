@@ -8,7 +8,7 @@ class Pipegem < ActiveRecord::Base
                    :uniqueness => { :case_sensitive => false }
 
   def name_delete_prefix
-    prefix = /^pipe-/i
+    prefix = /\Apipe-/i
     self.name.try(:sub!, prefix, '')
   end
                    
