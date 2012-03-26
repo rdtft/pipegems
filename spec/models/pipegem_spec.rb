@@ -38,11 +38,4 @@ describe Pipegem do
     end
   end
 
-  # TODO: draper
-  # it 'add prefix `pipe-` if without prefix' do
-  #   subject.name = 'awesome'
-  #   subject.normalize_name
-  #   subject.name.should eql 'pipe-awesome'
-  # end
-
 end

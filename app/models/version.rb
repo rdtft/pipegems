@@ -9,7 +9,6 @@ class Version < ActiveRecord::Base
                    # https://github.com/rubygems/rubygems/blob/master/lib/rubygems/version.rb#L150
   
   def name_delete_prefix
-    prefix = /\Av/i
-    self.name.try(:sub!, prefix, '')
+    self.name.try(:sub!, /\Av/i, '')
   end
 end

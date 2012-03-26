@@ -21,6 +21,7 @@ def configure
   require 'rspec/autorun'
   require 'database_cleaner'
   require 'strip_attributes/shoulda'
+  require 'draper/rspec_integration'
   require_all 'spec/support/**/*.rb', relative_to: 'spec'
 
   RSpec.configure do |c|

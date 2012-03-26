@@ -45,11 +45,4 @@ describe Version do
     end
   end
   
-  # TODO: draper
-  # it '#normalize_prefix' do
-  #   version.name = '0.1.0'
-  #   version.valid?
-  #   version.name.should eql 'v0.1.0'
-  # end
-
 end

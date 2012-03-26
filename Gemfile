@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails',               '~> 3.2.1'
+gem 'draper',              '~> 0.11.1'
 
 gem 'pg',                  '~> 0.12.2'
 
