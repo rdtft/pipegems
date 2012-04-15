@@ -1,4 +1,5 @@
 class Version < ActiveRecord::Base
+  has_many :version_files, :dependent => :destroy
 
   strip_attributes :only => :name
   before_validation :name_delete_prefix

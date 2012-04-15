@@ -3,6 +3,10 @@ require 'spec_helper'
 describe Version do
   subject { Fabricate :version }
 
+  context 'associations' do
+    it { should have_many(:version_files).dependent(:destroy) }
+  end
+
   context 'validations' do
     it { should validate_uniqueness_of(:name).scoped_to(:pipegem_id) }
     it { should validate_presence_of :name }
