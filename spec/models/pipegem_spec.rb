@@ -16,22 +16,23 @@ describe Pipegem do
     let(:pipegem) { Fabricate.build :pipegem }
 
     context 'before' do
-      it '#name_delete_prefix' do
+      it { should strip_attributes :name }
+      it 'should use #name_delete_prefix' do
         pipegem.name = 'pipe-pipegem'
         pipegem.valid?
         pipegem.name.should eql 'pipegem'
       end
-    
-      it { should strip_attributes :name }
     end
   end
 
   context '#name_delete_prefix' do
-    it 'case insensitive' do
+    it 'should delete `pipe-`' do
       subject.name = 'pipe-pipegem'
       subject.name_delete_prefix
       subject.name.should eql 'pipegem'
+    end
 
+    it 'should be case insensitive' do
       subject.name = 'PiPe-pipegem'
       subject.name_delete_prefix
       subject.name.should eql 'pipegem'
