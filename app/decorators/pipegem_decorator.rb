@@ -2,7 +2,7 @@ class PipegemDecorator < ApplicationDecorator
   decorates :pipegem
 
   def name_with_prefix
-    "pipe-#{model.name}"
+    "pipe-#{pipegem.name}"
   end
 
 end
