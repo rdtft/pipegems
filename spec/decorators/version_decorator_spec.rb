@@ -7,7 +7,9 @@ describe VersionDecorator do
   let(:version) { Fabricate.build :version }
 
   context '#name_with_prefix' do
-    its(:name_with_prefix) { should eql "v#{version.name}" }
+    it 'should add `v`' do
+      subject.name_with_prefix.should eql "v#{version.name}"
+    end
   end
 
 end

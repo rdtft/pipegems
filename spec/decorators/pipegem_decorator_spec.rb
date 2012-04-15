@@ -7,6 +7,8 @@ describe PipegemDecorator do
   let(:pipegem) { Fabricate.build :pipegem }
 
   context '#name_with_prefix' do
-    its(:name_with_prefix) { should eql "pipe-#{pipegem.name}" }
+    it 'should add `pipe-`' do
+      subject.name_with_prefix.should eql "pipe-#{pipegem.name}" 
+    end
   end
 end
