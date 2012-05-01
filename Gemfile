@@ -15,7 +15,6 @@ gem 'inherited_resources', '~> 1.3.0'
 gem 'cancan',              git: 'git://github.com/ryanb/cancan.git', branch: '2.0'
 
 gem 'jquery-rails',        '~> 2.0.2'
-gem 'ember-rails',         '~> 0.2.4'
 
 gem 'strip_attributes',    git: 'git://github.com/mkaschenko/strip_attributes.git', branch: 'shoulda_matchers_support'
 
