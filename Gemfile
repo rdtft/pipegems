@@ -19,6 +19,10 @@ gem 'jquery-rails',        '~> 2.0.2'
 
 gem 'strip_attributes',    git: 'git://github.com/mkaschenko/strip_attributes.git', branch: 'shoulda_matchers_support'
 
+gem 'rabl'
+
+gem 'gon'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'
   gem 'coffee-rails', '~> 3.2.2'
