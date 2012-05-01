@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails',               '~> 3.2.1'
+gem 'rails',               '~> 3.2.3'
 gem 'draper',              '~> 0.11.1'
 
 gem 'pg',                  '~> 0.12.2'
@@ -8,13 +8,13 @@ gem 'pg',                  '~> 0.12.2'
 gem 'devise',              '~> 2.0.0'
 gem 'omniauth-github',     '~> 1.0.1'
 
-gem 'carrierwave',         git: 'git://github.com/jnicklas/carrierwave.git'
+gem 'carrierwave',         '~> 0.6.2'
 
 gem 'inherited_resources', '~> 1.3.0'
 
 gem 'cancan',              git: 'git://github.com/ryanb/cancan.git', branch: '2.0'
 
-gem 'jquery-rails',        '~> 2.0.0'
+gem 'jquery-rails',        '~> 2.0.2'
 gem 'ember-rails',         '~> 0.2.4'
 
 gem 'strip_attributes',    git: 'git://github.com/mkaschenko/strip_attributes.git', branch: 'shoulda_matchers_support'
