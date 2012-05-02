@@ -10,5 +10,4 @@ class Pipegem < ActiveRecord::Base
   def name_delete_prefix
     self.name.try(:sub!, /\Apipe-/i, '')
   end
-                   
 end

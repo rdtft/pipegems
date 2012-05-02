@@ -36,7 +36,7 @@ describe Version do
       subject.name_delete_prefix
       subject.name.should eql '0.1.0'
     end
-    
+
     it 'should be case insensitive' do
       subject.name = 'V0.1.0'
       subject.name_delete_prefix
