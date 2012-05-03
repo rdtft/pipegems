@@ -67,16 +67,5 @@ class RubygemVersion < ActiveRecord::Base
 
     gem_file.file = File.open(gem_file_path)
     gem_file.save
-
-    return # Disable index generation - k
-
-    update = File.exists?("#{Rails.root}/public/specs.4.8")
-
-    Rails.logger.info "#{update ? 'Update' : 'Generate'} gems index"
-    Bundler.with_clean_env do
-      Rails.logger.info(
-        `gem generate_index --directory #{Rails.root}/public #{update ? '--update' : ''}`
-      )
-    end
   end
 end
